@@ -4,7 +4,7 @@ import { Box, useColorModeValue, Text } from 'native-base';
 export const Navbar= () =>{
     return (    
         <Box       
-            bg='orange.400'
+            bg='black'
             p={4}
             height='9%'>
             <Text

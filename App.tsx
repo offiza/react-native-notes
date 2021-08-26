@@ -4,17 +4,19 @@ import { useContext, useState } from 'react';
 import { Navbar } from './src/NavBar';
 import Context from './src/context';
 import NoteList from './src/NoteComponents/NoteList'
+import {AddNote} from './src/AddNote'
+
 export default function App() {
   let [notes, setNotes] = useState ([
     {
       id: 1,
       title: 'Pizza',
-      content: 'hello',
+      content: 'hellhellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohelloo',
       date: Date.now().toString()   
     },
     {
       id: 2,
-      title: 'Pinza',
+      title: '',
       content: 'hi',
       date: Date.now().toString()
     },    {
@@ -77,6 +79,7 @@ export default function App() {
       <NativeBaseProvider>
         <Navbar></Navbar>
           <NoteList notes={notes}></NoteList>
+          <AddNote></AddNote>
       </NativeBaseProvider>
     </Context.Provider>
   );
