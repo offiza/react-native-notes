@@ -1,15 +1,15 @@
 import React, {FC, useContext} from 'react'
 import {INote} from '../types'
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, Dimensions } from 'react-native';
 import { Box, Button, Center, HStack, Stack, Text } from 'native-base';
 import Context from '../context'
 
-interface TodoItemProps{
+interface NoteItemProps{
     note: INote
     index: number
 }
 
-const TodoItem: FC<TodoItemProps> = ({note, index}) => { 
+const TodoItem: FC<NoteItemProps> = ({note, index}) => { 
     const {} = useContext(Context)
 
     const Title = () => {
@@ -25,11 +25,11 @@ const TodoItem: FC<TodoItemProps> = ({note, index}) => {
         }
     }
     const Content = () => {
-        if(note.content.length >= 63)
+        if(note.content.length >= 43)
             return <Text
                 color='white'
                 marginTop='10px'>
-                {note.content.substr(0,63)+'...'}
+                {note.content.substr(0,43)+'...'}
             </Text> 
         else return <Text
             color='white'
@@ -37,20 +37,20 @@ const TodoItem: FC<TodoItemProps> = ({note, index}) => {
             {note.content}
         </Text> 
     }
-
+// todo Date
     return(
         <Box
             bg='dark.50'
             borderRadius='30px'
             height='150px'
-            width='250px'
+            width={(Dimensions.get('window').width/100*45)}
             paddingX='20px'
             paddingY='20px'
             marginY='4px'>
                 <Title></Title>
                 <Text 
                     fontSize='sm'>
-                    {note.date}
+                    {note.date} 
                 </Text>
                 <Content></Content>
         </Box>
