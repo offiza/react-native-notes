@@ -3,6 +3,7 @@ import {INote} from '../types'
 import { TouchableOpacity, Dimensions } from 'react-native';
 import { Box, Button, Center, HStack, Stack, Text } from 'native-base';
 import Context from '../context'
+import time from '../Time'
 
 interface NoteItemProps{
     note: INote
@@ -39,21 +40,24 @@ const TodoItem: FC<NoteItemProps> = ({note, index}) => {
     }
 // todo Date
     return(
-        <Box
-            bg='dark.50'
-            borderRadius='30px'
-            height='150px'
-            width={(Dimensions.get('window').width/100*45)}
-            paddingX='20px'
-            paddingY='20px'
-            marginY='4px'>
+        <TouchableOpacity
+            activeOpacity={0.5}>
+            <Box
+                bg='dark.50'
+                borderRadius='30px'
+                height='150px'
+                width={(Dimensions.get('window').width/100*45)}
+                paddingX='20px'
+                paddingY='20px'
+                marginY='4px'>
                 <Title></Title>
                 <Text 
                     fontSize='sm'>
-                    {note.date} 
+                    {time(note.date)} 
                 </Text>
                 <Content></Content>
-        </Box>
+            </Box>
+        </TouchableOpacity>
     );
    
 }
