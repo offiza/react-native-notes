@@ -96,7 +96,7 @@ export default function App() {
               },
               headerTintColor: '#fff',
              }}/>
-            <Stack.Screen name="Note" component={Navbar} />
+            <Stack.Screen name="NotePage" component={NotePage} />
           </Stack.Navigator>
         </NavigationContainer>
       </NativeBaseProvider>

@@ -12,7 +12,7 @@ interface ListProps{
     value: number,
 }
 
-const TodoList: FC<NoteListProps> = ({notes}) => {
+const NoteList: FC<NoteListProps> = ({notes}) => {
     
     const List: FC<ListProps> = ({value}) => {
         let newNotes: INote[] = []
@@ -47,4 +47,4 @@ const TodoList: FC<NoteListProps> = ({notes}) => {
     );
 }
 
-export default TodoList
+export default NoteList

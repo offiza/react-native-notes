@@ -4,13 +4,20 @@ import { TouchableOpacity, Dimensions } from 'react-native';
 import { Box, Button, Center, HStack, Stack, Text } from 'native-base';
 import Context from '../context'
 import time from '../Time'
+import { useNavigation } from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackParamList} from '../RootStackParams';
+
+type mainScreenProp = StackNavigationProp<RootStackParamList, 'Main'>;
 
 interface NoteItemProps{
     note: INote
     index: number
 }
 
-const TodoItem: FC<NoteItemProps> = ({note, index}) => { 
+const NoteItem: FC<NoteItemProps> = ({note, index}) => { 
+    const navigation = useNavigation<mainScreenProp>();
+
     const {} = useContext(Context)
 
     const Title = () => {
@@ -25,6 +32,7 @@ const TodoItem: FC<NoteItemProps> = ({note, index}) => {
             return (null)
         }
     }
+
     const Content = () => {
         if(note.content.length >= 43)
             return <Text
@@ -38,10 +46,15 @@ const TodoItem: FC<NoteItemProps> = ({note, index}) => {
             {note.content}
         </Text> 
     }
-// todo Date
+
     return(
         <TouchableOpacity
-            activeOpacity={0.5}>
+            activeOpacity={0.5}
+            onPress={() => {
+                navigation.navigate('NotePage', {
+                  itemId: note.id,
+                  note: note
+                });}}>
             <Box
                 bg='dark.50'
                 borderRadius='30px'
@@ -62,4 +75,4 @@ const TodoItem: FC<NoteItemProps> = ({note, index}) => {
    
 }
 
-export default TodoItem;
+export default NoteItem;
