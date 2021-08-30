@@ -10,8 +10,8 @@ export const AddNote = () =>{
             width= '60px'
             borderRadius='50px'
             position='absolute'
-            bottom='20px'
-            right='20px'
+            bottom='25px'
+            right='25px'
             _text={{
                 color: 'white',
                 fontSize: '2xl'
