@@ -72,7 +72,6 @@ const NoteItem: FC<NoteItemProps> = ({note, index}) => {
             </Box>
         </TouchableOpacity>
     );
-   
 }
 
 export default NoteItem;
