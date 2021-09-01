@@ -27,7 +27,7 @@ export default function App() {
       id: 3,
       title: 'Pizza',
       content: 'hello',
-      date: new Date(Date.now()).toString()   
+      date: new Date(Date.now()-99999999).toString()   
     },
     {
       id: 4,
@@ -83,8 +83,7 @@ export default function App() {
   return (
     <Context.Provider value={{notes}}>
       <NativeBaseProvider>
-        {/* <Navbar></Navbar> */}
-        <NavigationContainer >
+        <NavigationContainer>
           <Stack.Navigator 
             initialRouteName="Home">
             <Stack.Screen
@@ -96,7 +95,14 @@ export default function App() {
               },
               headerTintColor: '#fff',
              }}/>
-            <Stack.Screen name="NotePage" component={NotePage} />
+            <Stack.Screen 
+              name="NotePage" 
+              component={NotePage}
+              options={{
+                headerStyle: {
+                  backgroundColor: 'black'
+                },
+                headerTintColor: '#fff'}}/>
           </Stack.Navigator>
         </NavigationContainer>
       </NativeBaseProvider>
