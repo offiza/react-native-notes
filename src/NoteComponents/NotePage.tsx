@@ -44,8 +44,7 @@ const NotePage = ({route}: Props) => {
             onChange={setContentHandler}
             />
         </Stack>
-        
-            <Text>{params.note.content}</Text> 
+        <Text>{params.note.content}</Text> 
         </Box>
     );
 }
